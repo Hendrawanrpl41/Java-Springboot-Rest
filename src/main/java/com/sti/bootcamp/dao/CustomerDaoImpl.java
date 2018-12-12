@@ -46,6 +46,9 @@ public class CustomerDaoImpl extends BaseImpl implements CustomerDao  {
 		// TODO Auto-generated method stub
 		return q.getResultList();
 	}
-	
+//	@Override
+//	protected void configure (HttpSecurity http) throws Exception {
+//	    http.csrf().disable();
+//	}
 
 }

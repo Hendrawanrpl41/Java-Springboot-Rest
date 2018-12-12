@@ -41,16 +41,14 @@ public class CustomerContoller {
 	
 	//delete
 	@DeleteMapping("/customer")
-	public Customer deleteCustomer(@RequestParam("id") int id)throws Exception {
-		Customer customer = new Customer();
-		customer.setCustomerNumber(id);
-		
+	public Customer deleteCustomer(@RequestBody Customer customer)throws Exception {
 		customerDao.delete(customer);
 		return customer;
+		
 	}
 	
-	//tampil data
-	@GetMapping("/dao")
+	//cari data
+	@GetMapping("/customer")
 	public String dao(@RequestParam(value = "id",defaultValue = "")String id)throws Exception {
 		try {
 			Customer customer = customerDao.getById(Integer.valueOf(id));
@@ -67,37 +65,47 @@ public class CustomerContoller {
 			return String.format("terjadi kesalahan sistem : ", e.getMessage());
 		}
 	}
-	
-	@GetMapping("/customer/{id}")
-	public Customer getById(@PathVariable int id) {
-		Customer customer = new Customer();
-		customer.setCustomerNumber(id);
-		return customer;
+	//list
+	@GetMapping("/customer/data")
+	public List<Customer> allData(){
+		try {
+			List<Customer> list = customerDao.getList();
+			return list;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
 	}
+//	@GetMapping("/customer/{id}")
+//	public Customer getById(@PathVariable int id) {
+//		Customer customer = new Customer();
+//		customer.setCustomerNumber(id);
+//		return customer;
+//	}
 
 //	@PostMapping("/addcustomer")
 //	public Customer addcustomer(@RequestBody Customer customer) {
 //		
 //		return customer;
 //	}
-
-	@GetMapping("/test")
-	public String coba(@RequestParam(value="nama",required=false) String nama) {
-		
-		return nama;
-	}
+//
+//	@GetMapping("/test")
+//	public String coba(@RequestParam(value="nama",required=false) String nama) {
+//		
+//		return nama;
+//	}
+//	
 	
+//	@GetMapping("/readcustomer")
+//	public Customer readcustomer() {
+//		Customer customer = new Customer();
+//		return customer;
+//	}
 	
-	@GetMapping("/readcustomer")
-	public Customer readcustomer() {
-		Customer customer = new Customer();
-		return customer;
-	}
-	
-	@PutMapping("/updatecustomer")
-	public Customer updatecustomer(@RequestBody Customer customer) {
-		return customer;
-	}
+//	@PutMapping("/updatecustomer")
+//	public Customer updatecustomer(@RequestBody Customer customer) {
+//		return customer;
+//	}
 	
 //	@PostMapping("/customer")
 //	public Customer nama(@RequestParam("nama") String nama) {
@@ -107,11 +115,11 @@ public class CustomerContoller {
 //	}
 	
 	
-	@DeleteMapping("/customer/{id}")
-	public String delete(@PathVariable String id) {
-		String hasil = id;
-		return hasil;
-	}
+//	@DeleteMapping("/customer/{id}")
+//	public String delete(@PathVariable String id) {
+//		String hasil = id;
+//		return hasil;
+//	}
 	
 //	@GetMapping("/customer")
 //	public Customer getlist(@RequestBody Customer customer){

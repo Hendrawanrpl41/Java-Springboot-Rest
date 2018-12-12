@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		enigma 1
+	</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+<body>
+	
+	<!-- <form name="customer" method="POST" >
+		<table border = 0 align="center">
+			<tr>
+				<td colspan="3" align="center"><h3>Sigup Customer</h3></td>
+			</tr>
+			<tr>
+				<td colspan="3"><hr></td>
+			</tr>
+			<tr>
+				<td>First Name  : </td>
+				<td>:</td>
+				<td>
+
+					<input type ="text" name="firstname" id="firstname">
+					<div id="err"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td>:</td>
+				<td><input type="text" name="lastname" required></td>
+				<br>		
+			</tr>
+			<tr>
+				<td>Username</td>
+				<td>:</td>
+				<td><input type="text" name="username" required></td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td>:</td>
+				<td><input type="text" name="password" required></td>
+			</tr>
+			<tr>
+				<td>Brith Date</td>
+				<td>:</td>
+				<td><input type="date" name="brithdate" required></td>
+			</tr>
+			<tr>
+				<td>Phone Type</td>
+				<td>:</td>
+				<td><input type="text" name="phonetype" required></td>
+			</tr>
+			<tr>
+				<td>Phone Number</td>
+				<td>:</td>
+				<td><input type="number" name="phonenumber" required></td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" value="Submit" name="submit" id="submit">
+					<input type="reset" value="reset" >
+				</td>
+			</tr>
+		</table>
+	</form> -->
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var obj = {	"firstName": "hendrawan",
+					    "lastName": "dvsdv",
+					    "brithDate": "2010-01-01",
+					    "username": "ssdfsfs",
+					    "password": "sdsdfsdf",
+					    "phoneNumber": "34234",
+					    "phoneType": "adsfsfs"
+					};
+		var myjson = JSON.stringify(obj);
+			$.ajax({
+			  url: 'http://localhost:8080/cus/custome',
+			  type: 'POST',
+			  data: myjson,
+			  dataType: 'json',
+			  contentType: "application/json; charset=utf-8",
+			  
+			  success: function(msg) {
+			    // alert(segitiga);
+			    $('#hasil').html(msg);
+			  },
+			  error: function(msg) {
+			    alert('msg');
+			  }
+			});
+	});
+	
+			
+</script>
+</html>
