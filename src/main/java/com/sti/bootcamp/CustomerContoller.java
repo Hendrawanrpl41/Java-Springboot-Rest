@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -23,13 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sti.bootcamp.dao.Customer;
 import com.sti.bootcamp.dao.CustomerDao;
 import com.sti.bootcamp.dao.CustomerRepository;
-
+@Controller
 @RestController
 @RequestMapping("/cus")
 public class CustomerContoller {
 	@Autowired
 	private CustomerDao customerDao;
 
+	
 	
 	
 	//input

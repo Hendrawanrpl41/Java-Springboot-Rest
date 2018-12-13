@@ -10,4 +10,12 @@ public class DaoSpringConfig {
 	public CustomerDao customerDao() {
 		return new CustomerDaoImpl();
 	}
+	@Bean
+	public AccountDao accountDao() {
+		return new AccountDaoImpl();
+	}
+	@Bean
+	public TransactionDao transactionDao() {
+		return new TransactionDaoImpl();
+	}
 }

@@ -18,7 +18,7 @@ import com.sti.bootcamp.dao.DaoSpringConfig;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-@EnableJpaRepositories({""})
+@EnableJpaRepositories
 @Import(DaoSpringConfig.class)
 @SpringBootApplication
 public class App 
