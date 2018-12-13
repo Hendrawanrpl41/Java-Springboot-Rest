@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Menu
+	</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+
+</head>
+<body>
+	<form method="" action="" name="" class="form">
+		<table align="center">
+			<tr align="center">
+				<td colspan="3"><h3 align="center"><a href="menu.html">Main Menu</a></h3><hr></td>
+			</tr>
+			<tr>
+				<td>
+					<select id="customer" class="select">
+						<option>Customer</option>
+						<option value="cussigup">SignUp</option>
+						<option value="cussigin">SignIn</option>
+					</select>
+				</td>
+				<td>
+					<select id="account">
+						<option>Account</option>
+						<option value="acccreate">Create</option>
+						<option value="acclist">List</option>
+					</select>
+				</td>
+				<td>
+					<select id="trx">
+						<option>Transaction</option>
+						<option value="trxtransfer">Transfer</option>
+						<option value="trxtopup">Top Up</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+
+		
+		
+
+	</form>
+	
+	<div id="badan" align="center">
+ 
+ 
+ 
+	</div>
+
+</body>
+	<script type="text/javascript"	>
+	$(document).ready(function(){
+		$('#customer').change(function(event){
+			var tamcus = $('select').val();
+			if(tamcus == "cussigup"){
+				$("#badan").load("sigup.html");
+			}else if(tamcus == "cussigin"){
+				$("#badan").load("sigin.html");
+			}tamcus
+		});
+		$('#account').change(function(event){
+			var tamacc = $('#account').val();
+			if(tamacc == "acccreate"){
+				$("#badan").load("createaccount.html");
+			}else if(tamacc == "acclist"){
+				$("#badan").load("accountlist.html");
+			}
+		});
+
+		$('#trx').change(function(event){
+			var tamtrx = $('#trx').val();
+			if(tamtrx == "trxtransfer"){
+				$("#badan").load("transfer.html");
+			}else if(tamtrx == "trxtopup"){
+				$("#badan").load("topup.html");
+			}
+		});
+	});
+
+
+
+</script>
+
+</html>

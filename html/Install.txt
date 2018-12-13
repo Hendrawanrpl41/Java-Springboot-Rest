@@ -1,0 +1,2 @@
+1. buka file menu atau jalankan langsung di browser
+2. ubah konfigurasi lombat data signup ke url api java spring anda

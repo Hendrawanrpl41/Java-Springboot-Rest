@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		sigup
+	</title>
+	
+
+</head>
+<body>
+	
+	<form name="customer" method="POST" class="form" enctype="application/json">
+		<table border = 0 align="center">
+			<tr>
+				<td colspan="3" align="center"><h3>Sigup Customer</h3></td>
+			</tr>
+			<tr>
+				<td colspan="3"><hr></td>
+			</tr>
+			<tr>
+				<td>First Name  : </td>
+				<td>:</td>
+				<td>
+
+					<input type ="text"  id="firstName" required="">
+					<div id="err"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td>:</td>
+				<td><input type="text" id="lastName" required></td>
+				<br>		
+			</tr>
+			<tr>
+				<td>Username</td>
+				<td>:</td>
+				<td><input type="text" id="username" required></td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td>:</td>
+				<td><input type="text" id="password" required></td>
+			</tr>
+			<tr>
+				<td>Brith Date</td>
+				<td>:</td>
+				<td><input type="date" id="brithDate" required></td>
+			</tr>
+			<tr>
+				<td>Phone Type</td>
+				<td>:</td>
+				<td><input type="text" id="phoneType" required></td>
+			</tr>
+			<tr>
+				<td>Phone Number</td>
+				<td>:</td>
+				<td><input type="number" id="phoneNumber" required></td>
+			</tr>
+			<tr>
+				<td align="center">
+					<button class="bnt btn-primary" id="kirim">kirim</button>
+					<button class="bnt btn-danger">reset</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#kirim").click(function(){
+			var firstName = $("#firstName").val();
+			var lastName = $("#lastName").val();
+			var brithDate = $("#brithDate").val();
+			var phoneNumber = $("#phoneNumber").val();
+			var phoneType = $("#phoneType").val();
+			var username = $("#username").val();
+			var password = $("#password").val();
+
+			alert(firstName);
+			var data = {	
+			"firstName" : firstName,
+			"lastName" : lastName,
+			"brithDate": brithDate,
+			"username": username,
+			"password": password,
+			"phoneNumber": phoneNumber,
+			"phoneType": phoneType
+			};
+			$.ajax({
+				url: "http://localhost:8080/cus/customer",
+				dataType: 'json',
+				method: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				success: function(){
+					alert("berhasil");
+				},
+				error: function(){
+					alert("gagal");
+				}
+			});
+		});
+		
+	});	
+</script>
+</body>
+</html>

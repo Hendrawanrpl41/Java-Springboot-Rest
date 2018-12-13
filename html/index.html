@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		enigma 1
+	</title>
+	<meta name="Referrer" content="http://example.com/comic/" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	
+
+	<script type="text/javascript">
+
+	
+		$(document).ready(function(){
+			alert("datang");
+			var data = {	
+				"firstName" : "aing macan",
+				"lastName": "dvsdv",
+				 "brithDate": "2010-01-01",
+				 "username": "ssdfsfs",
+				 "password": "sdsdfsdf",
+				 "phoneNumber": "34234",
+				 "phoneType": "adsfsfs"};
+			$.ajax({
+				url: "http://localhost:8080/cus/customer",
+				dataType: 'json',
+				method: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				success: function(){
+					alert("berhasil");
+				},
+				error: function(){
+					alert("gagal");
+				}
+			});
+		});	
+	</script>
+</head>
+<body>
+	
+</body>
+
+</html>
